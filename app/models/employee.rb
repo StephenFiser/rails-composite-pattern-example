@@ -1,0 +1,2 @@
+class Employee < Entity
+end

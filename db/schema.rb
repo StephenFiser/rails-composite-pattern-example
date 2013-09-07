@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130906215923) do
+ActiveRecord::Schema.define(:version => 20130907201509) do
 
   create_table "entities", :force => true do |t|
     t.string   "name"
@@ -20,11 +20,25 @@ ActiveRecord::Schema.define(:version => 20130906215923) do
     t.string   "type"
   end
 
+  create_table "entities_works", :id => false, :force => true do |t|
+    t.integer "entity_id"
+    t.integer "work_id"
+  end
+
+  add_index "entities_works", ["entity_id", "work_id"], :name => "index_entities_works_on_entity_id_and_work_id"
+
   create_table "relationships", :force => true do |t|
     t.string   "composite_id"
     t.string   "member_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "works", :force => true do |t|
+    t.string   "title"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

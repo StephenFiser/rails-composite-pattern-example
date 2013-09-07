@@ -1,12 +1,7 @@
 class Entity < ActiveRecord::Base
-  attr_accessible :name
+	include CompositeMethods
 
-  	def members
-  		member_ids = []
-		relationships = Relationship.where(composite_id: self.id).all 
-		relationships.each do |relationship|
-			member_ids << relationship.member_id
-		end
-		@members = Entity.find(member_ids)
-	end
+  	attr_accessible :name
+  	has_and_belongs_to_many :works
+
 end

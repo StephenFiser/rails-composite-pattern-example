@@ -1,4 +1,11 @@
 CompanyStructure::Application.routes.draw do
+
+  resources :employees
+  resources :teams
+  resources :divisions
+  resources :departments
+  resources :companies
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

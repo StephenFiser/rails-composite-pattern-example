@@ -1,10 +1,15 @@
 CompanyStructure::Application.routes.draw do
 
+  match '/teams/add_project', to: 'teams#add_project'
+
   resources :employees
   resources :teams
   resources :divisions
   resources :departments
   resources :companies
+  resources :projects
+  resources :tasks
+  resources :steps
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

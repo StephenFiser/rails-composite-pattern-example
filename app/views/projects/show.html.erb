@@ -1,0 +1,13 @@
+<%= link_to "Back to projects", projects_path, class: "btn btn-inverse" %>
+
+<h1><%= @project.title %></h1>
+<h3>Remaining Tasks</h3>
+<% if @tasks.length > 0 %>
+<ul>
+	<% @tasks.each do |task| %>
+		<li><%= task.title %></li>
+	<% end %>
+</ul>
+<% else %>
+	<h4>There are currently no tasks for this project.</h4>
+<% end %>	

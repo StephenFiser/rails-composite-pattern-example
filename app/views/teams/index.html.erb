@@ -1,0 +1,11 @@
+<h1>All Teams</h1>
+<ul>
+<% @teams.each do |team| %>
+	<li>
+		<%= link_to team.name, team %> | 
+		<%= link_to "Edit", edit_team_path(team) %> | 
+		<%= link_to "Delete", team, method: :delete, confirm: "Are you sure?" %>
+	</li>
+<% end %>
+</ul>
+<%= link_to "Create a new team", new_team_path, class: "btn btn-primary btn-large" %>

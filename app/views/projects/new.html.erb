@@ -1,0 +1,9 @@
+<h1>Create new project</h1>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@project) do |f| %>
+			<%=f.text_field :title, id: "Title", placeholder: "Title" %>
+			<%=f.submit "Create new project", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

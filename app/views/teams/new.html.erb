@@ -1,0 +1,9 @@
+<h1>Create new team</h1>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@team) do |f| %>
+			<%=f.text_field :name, id: "Name", placeholder: "Name" %>
+			<%=f.submit "Create new team", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

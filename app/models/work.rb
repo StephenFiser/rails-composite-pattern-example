@@ -1,7 +1,9 @@
 class Work < ActiveRecord::Base
 	include CompositeMethods
 
-  	attr_accessible :title
+	attr_accessor :entity_id
+	attr_accessible :entity_id, :title
+
   	has_and_belongs_to_many :entities
 
   	def teams 

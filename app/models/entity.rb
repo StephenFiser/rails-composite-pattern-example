@@ -1,7 +1,8 @@
 class Entity < ActiveRecord::Base
 	include CompositeMethods
 
-  	attr_accessible :name
+  	attr_accessible :name, :entity_id
+    attr_accessor :entity_id
   	has_and_belongs_to_many :works
 
   	def projects 

@@ -3,7 +3,14 @@
 
 <h1><%= @team.name %></h1>
 <h3>Team Members</h3>
-<ul>
+
+	<%= form_for(:employee, url: { controller: 'employees', action: 'create'}, remote: true, id: "members") do |f| %>
+		<%= f.hidden_field :entity_id, value: @team.id %>
+		<%= f.text_field :name, id: "Name", placeholder: "Name", class: "pull-left" %>
+		<%=f.submit "New", class: "btn btn-primary" %>
+	<% end %>
+
+<ul id="team_members">
 	<% @team_members.each do |member| %>
 		<li><%= member.name %></li>
 	<% end %>
@@ -12,11 +19,11 @@
 
 	<%= form_for(:project, url: { controller: 'projects', action: 'create'}) do |f| %>
 		<%= f.hidden_field :entity_id, value: @team.id %>
-		<%= f.text_field :title, id: "Title", placeholder: "Title" %>
-		<%=f.submit "Create new project", class: "btn btn-large btn-primary" %>
+		<%= f.text_field :title, id: "Title", placeholder: "Title", class: "pull-left" %>
+		<%=f.submit "New", class: "btn btn-primary" %>
 	<% end %>
 	
-<ul>
+<ul id="projects">
 	<% @projects.each do |project| %>
 		<li><%= project.title %></li>
 	<% end %>
